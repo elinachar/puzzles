@@ -25,10 +25,15 @@
 
   <body>
     <!-- main body starts here -->
-      <div class="main-body">
-        <%= yield %>
-      </div>
+    <div class="main-body">
+      <%= yield %>
     </div>
+
+    <hr>
+    <footer>
+      <p class="copyright">&copy; <%= Date.today.year %> <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank %></p>
+      <p class="unsplash">All photos from <%= link_to 'Unsplash', 'https://unsplash.com/', target: :_blank %></p>
+    </footer>
     <!-- main body ends here -->
   </body>
 </html>

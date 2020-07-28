@@ -1,7 +1,12 @@
 :root {
   --orange: #da7655;
+  --dark-orange: #824633;
   --light-orange: #fbf1ee;
   --teal: #00cbb5;
+}
+
+html, body {
+  height: 100%; /* for the sticky footer */
 }
 
 h1 {
@@ -85,4 +90,37 @@ a {
       }
     }
   }
+}
+
+.main-body {
+  min-height: 100%; /* for the sticky footer */
+}
+
+
+hr {
+  box-shadow: 1px 1px #ccf4f0;
+  margin-bottom: 0px;
+}
+
+footer {
+  padding: 20px 30px 0px 30px;
+  height: 60px;
+  background: #eafaf8;
+
+  a {
+    color: var(--orange);
+  }
+
+  a:hover {
+    color: var(--dark-orange);
+  }
+
+  .copyright{
+    float: left;
+  }
+
+  .unsplash {
+    float: right;
+  }
+
 }
