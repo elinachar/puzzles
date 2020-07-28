@@ -21,6 +21,19 @@ class PuzzlesController < ApplicationController
       @piecesNumberWidth = params[:piecesnumberwidth].to_i
       @piecesNumberHeight = params[:piecesnumberheight].to_i
     end
+
+    @category = Category.find(@puzzle.category_id)
+
+    puzzle_array_ids = Puzzle.where(category_id: @puzzle.category_id).pluck(:id)
+    puzzle_array_ids.delete(@puzzle.id)
+    random_puzzle_ids = puzzle_array_ids.sample(4)
+    @random_puzzles =  Puzzle.where(id: random_puzzle_ids)
+
+    category_array_ids = Category.pluck(:id)
+    category_array_ids.delete(@puzzle.category_id)
+    random_category_ids = category_array_ids.sample(4)
+    @random_categories = Category.where(id: random_category_ids)
+
     respond_to do |format|
       format.html
       format.js

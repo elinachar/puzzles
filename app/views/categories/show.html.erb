@@ -1,12 +1,33 @@
-<div class="container text-center">
+<div class="container text-center category-show">
 
 <p id="notice"><%= notice %></p>
 
 <h1>Animals of the <%= @category.name %></h1>
 
+<div class="row group-cards">
+  <% @puzzles.each do |puzzle| %>
+    <div class="col-sm-6 col-md-4 card">
+      <%= link_to puzzle, :action => 'go' do %>
+        <%= image_tag puzzle.image_url.to_s, alt: puzzle.name, class: "img-responsive" %>
+        <h2><%= puzzle.name %></h2>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
+<div class="possibilities">
+  <div class="buttons">
+    <div class="button">
+      <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, categories_path, class:"back-btn" %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to '<span>&#43;</span> Add New Puzzle'.html_safe, new_puzzle_path, class: "btn" %>
+
+<br>
+<br>
+<%= link_to 'Edit', edit_category_path(@category) %>
+
 
 </div>

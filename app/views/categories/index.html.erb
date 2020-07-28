@@ -1,16 +1,22 @@
-<div class="container text-center">
+<div class="container text-center categories-index">
   <p id="notice"><%= notice %></p>
 
   <h1>Animal Puzzles</h1>
 
-  <div class="row categories-index">
+  <div class="row group-cards">
     <% @categories.each do |category| %>
-      <div class="col-sm-6 category-index">
+      <div class="col-sm-6 card">
         <%= link_to category, :action => 'go' do %>
           <%= image_tag category.image_url.to_s, alt: category.name, class: "img-responsive" %>
           <h2><%= category.name %></h2>
         <% end %>
       </div>
+
+      <!--
+      <%= link_to 'Show', category %>
+      <%= link_to 'Edit', edit_category_path(category) %>
+      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+      -->
     <% end %>
   </div> <!-- end row -->
 
@@ -18,9 +24,3 @@
   <br>
   <%= link_to 'New Category', new_category_path %>
 </div>
-
-<!--
-<%= link_to 'Show', category %>
-<%= link_to 'Edit', edit_category_path(category) %>
-<%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>  
--->

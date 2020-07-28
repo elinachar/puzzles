@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function() {
     $(".piece").css("background-image", "url('" + imageUrl + "')");
 
     // Set the size of the main puzzle
-    ratio = 1920/1080;
+    ratio = 1920/1280;
     col8Width  = $(".col-8").width();
 
     // The main puzzle (whole image) will have the 40% of the document height
@@ -104,6 +104,25 @@ $(document).on('turbolinks:load', function() {
       }
     }
   });
+
+  // Get the number of pieces on the page
+  var url_index_of_pieces, num_of_pieces_1, num_of_pieces_2, num_of_pieces;
+  url_index_of_pieces = window.location.href.indexOf("piecesnumber=");
+  num_of_pieces = 6;
+  if ( url_index_of_pieces > 0 ) {
+    num_of_pieces_1 = window.location.href[url_index_of_pieces + 13];
+    num_of_pieces_2 = window.location.href[url_index_of_pieces + 14];
+    num_of_pieces = parseInt(num_of_pieces_1);
+    if ( !isNaN(parseInt(num_of_pieces_2)) ) {
+      num_of_pieces = parseInt(num_of_pieces_1 + num_of_pieces_2);
+    }
+  }
+  $(".piece-selection").each (function (index, value) {
+    $(value).removeClass("active");
+  })
+
+  $("#piece-selection-" + num_of_pieces).addClass("active");
+  console.log("num of pieces", num_of_pieces)
 
 })
 
