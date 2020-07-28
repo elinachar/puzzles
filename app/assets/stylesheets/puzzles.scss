@@ -1,0 +1,192 @@
+// Place all the styles related to the puzzles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// color: #317873;
+// color: #225450;
+.container-fluid {
+  width: 90%;
+}
+
+.buttons {
+  display: inline-block;
+  padding-right: 0;
+  padding-left: 0;
+
+  .button:hover {
+    transform: scale(1.2);
+  }
+
+  .button {
+    display: inline-block;
+    background-color: #55dab8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    i {
+      font-size: 48px;
+      color: #da7655;
+      padding-left: 6px;
+      padding-top: 6px;
+    }
+  }
+
+  .button:first-of-type {
+    margin-right: 10px;
+  }
+}
+
+
+h1 {
+  color: #da7655;
+}
+
+.puzzle {
+  .main-puzzle {
+    text-align: center;
+    z-index: -1;
+
+    .row {
+      margin: 0;
+    }
+
+    .piece {
+      opacity: 0.2;
+    }
+  }
+
+  .piece.droppable.ui-droppable-hover {
+    opacity: 0.5;
+  }
+}
+
+.pieces-left,
+.pieces-right {
+  padding: 0;
+  position: relative;
+}
+
+.piece.draggable {
+  transform-origin: top left;
+}
+
+.possibilities {
+  margin-top: 50px;
+
+  .piece-selection:hover {
+    transform: scale(1.2);
+  }
+
+  .buttons {
+    padding-top: 20px;
+  }
+
+  .pieces-selection {
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+
+    .piece-selection {
+      display: inline-block;
+      position: relative;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+
+      img {
+        width: 80px;
+        transform: rotate(20deg);
+      }
+
+      p {
+        font-size: 35px;
+        font-weight: 600;
+        color: #00cbb5;
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        padding-top: 5px;
+        position: absolute;
+        top: 12px;
+        left: -8px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
+@media (max-width: 991px) {
+    .buttons {
+      .button {
+        width: 40px;
+        height: 40px;
+
+        i {
+          font-size: 28px;
+        }
+      }
+
+      .button:first-of-type {
+        margin-right: 5px;
+      }
+    }
+  .possibilities {
+    .pieces-selection {
+      .piece-selection {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        img {
+          width: 60px;
+        }
+
+        p {
+          font-size: 23px;
+          width: 60px;
+          height: 60px;
+          left: -5px;
+        }
+      }
+    }
+  }
+}
+
+
+// XSmall devices
+@media (max-width: 576px) {
+  .buttons {
+    .button {
+      width: 30px;
+      height: 30px;
+
+      i {
+        font-size: 23px;
+        padding-left: 3px;
+        padding-top: 3px;
+      }
+    }
+  }
+}
+
+// Medium devices and up
+@media (min-width: 768px) {
+  .title .buttons {
+    display: none;
+  }
+}
+
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) {...}
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width

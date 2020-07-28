@@ -1,0 +1,79 @@
+<div class="container-fluid puzzle">
+  <p id="notice"><%= notice %></p>
+
+  <div class="title row">
+    <div class="col-2 buttons">
+      <div class="button">
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, puzzles_path, class:"back-btn" %>
+      </div>
+      <div class="button">
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, puzzle_path, class:"back-btn" %>
+      </div>
+    </div> <!-- end butttons -->
+    <h1 class="col-10 col-md-12 text-center"><%= @puzzle.name %></h1>
+
+  </div>
+
+  <div class="row puzzle-pieces-side">
+    <div class="col-2 pieces pieces-left">
+      <% @piecesNumberArray[0..@piecesNumber/2-1].each do |i| %>
+        <div class="piece<%= i %> piece draggable" id="draggable-piece<%= i %>"></div>
+      <% end %>
+    </div>
+    <div class="col-8 main-puzzle" data-pieces-number="<%= @piecesNumber %>" data-pieces-number-width="<%= @piecesNumberWidth %>" data-pieces-number-height ="<%= @piecesNumberHeight %>" data-image-url = "<%= @puzzle.image_url.to_s %>" >
+      <% (1..@piecesNumberHeight).each do |h| %>
+        <div class="row">
+          <% (1..@piecesNumberWidth).each do |w| %>
+            <div class="piece<%= (h-1)*@piecesNumberWidth + w %> piece droppable" id="droppable-piece<%= (h-1)*@piecesNumberWidth + w %>"></div>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="col-2 pieces pieces-right">
+      <% @piecesNumberArray[@piecesNumber/2..@piecesNumber+1].each do |i| %>
+        <div class="piece<%= i %> piece draggable" id="draggable-piece<%= i %>"></div>
+      <% end %>
+    </div>
+  </div> <!-- end row -->
+
+  <div class="possibilities row">
+    <div class="col-md-2 col-3 buttons d-none d-md-block">
+      <div class="button">
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, puzzles_path, class:"back-btn" %>
+      </div>
+      <div class="button">
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, puzzle_path, class:"back-btn" %>
+      </div>
+    </div> <!-- end butttons -->
+
+    <div class="col-12 col-md-8 col-6 pieces-selection">
+      <%= link_to puzzle_path(piecesnumber: 4, piecesnumberwidth: 2, piecesnumberheight: 2), remote: false do %>
+        <div class="piece-selection">
+          <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
+          <p>4</p>
+        </div>
+      <% end %>
+      <%= link_to puzzle_path(piecesnumber: 6, piecesnumberwidth: 3, piecesnumberheight: 2), remote: false do %>
+        <div class="piece-selection">
+          <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
+          <p>6</p>
+        </div>
+      <% end %>
+      <%= link_to puzzle_path(piecesnumber: 12, piecesnumberwidth: 4, piecesnumberheight: 3), remote: false do %>
+        <div class="piece-selection">
+          <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
+          <p>12</p>
+        </div>
+      <% end %>
+      <%= link_to puzzle_path(piecesnumber: 16, piecesnumberwidth: 4, piecesnumberheight: 4), remote: false do %>
+        <div class="piece-selection">
+          <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
+          <p>16</p>
+        </div>
+      <% end %>
+    </div><!-- end pieces-selection -->
+  </div><!-- end possibilities -->
+
+</div>
+<%= link_to 'Edit', edit_puzzle_path(@puzzle) %>
