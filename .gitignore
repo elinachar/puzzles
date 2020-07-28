@@ -31,4 +31,4 @@
 /config/master.key
 
 # Ignore public folder
-/public
+/public/uploads
