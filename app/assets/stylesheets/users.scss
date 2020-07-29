@@ -1,0 +1,19 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logout {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.user-login {
+  margin-top: 50px;
+
+  h2 {
+    font-family: 'Cabin Sketch', cursive; //good
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: var(--orange);
+  }
+}

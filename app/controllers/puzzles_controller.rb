@@ -1,5 +1,6 @@
 class PuzzlesController < ApplicationController
   before_action :set_puzzle, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
 
   # GET /puzzles
   # GET /puzzles.json

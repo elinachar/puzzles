@@ -26,10 +26,27 @@
 
 
   <body>
-    <!-- main body starts here -->
+    <div class="anchor">
+    <!-- flash messages -->
+    <div class="container flash-messages">
+      <% if notice %>
+        <p id="notice" class="alert alert-info", role="alert"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p id="alert" class="alert alert-danger", role="alert"><%= alert %></p>
+      <% end %>
+    </div>
+
+    <div class="text-center">
+      <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn form-btn logout" %>
+      <% end %>
+    </div>
+
     <div class="main-body">
       <%= yield %>
     </div>
+  </div>
 
     <hr>
     <footer>

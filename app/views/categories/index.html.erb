@@ -1,5 +1,4 @@
 <div class="container text-center categories-index">
-  <p id="notice"><%= notice %></p>
 
   <h1>Animal Puzzles</h1>
 
@@ -11,16 +10,11 @@
           <h2><%= category.name %></h2>
         <% end %>
       </div>
-
-      <!--
-      <%= link_to 'Show', category %>
-      <%= link_to 'Edit', edit_category_path(category) %>
-      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
-      -->
     <% end %>
   </div> <!-- end row -->
 
-
-  <br>
-  <%= link_to 'New Category', new_category_path, class: 'btn form-btn' %>
+  <% if user_signed_in? %>
+    <br>
+    <%= link_to 'New Category', new_category_path, class: 'btn form-btn' %>
+  <% end %>
 </div>

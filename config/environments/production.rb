@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Dynamic links generate right URLs in emails (after installing devise gem)
+  # config.action_mailer.default_url_options = { host: 'theofilosvenardos.com' }
 end
