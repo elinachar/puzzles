@@ -1,6 +1,9 @@
-<h1>Editing Puzzle</h1>
+<div class="container-fluid puzzle-edit">
+  <h1>Editing Puzzle</h1>
 
-<%= render 'form', puzzle: @puzzle %>
+  <%= render 'form', puzzle: @puzzle %>
 
-<%= link_to 'Show', @puzzle %> |
-<%= link_to 'Back', puzzles_path %>
+  <br>
+  <br>
+  <%= link_to 'Show ' + @puzzle.name, @puzzle, class: "btn form-btn" %>
+</div>

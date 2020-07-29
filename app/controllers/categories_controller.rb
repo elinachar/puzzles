@@ -10,7 +10,6 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @puzzles = @category.puzzles
   end
 
   # GET /categories/new
@@ -70,6 +69,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :image_url)
+      params.require(:category).permit(:id, :name, :image_url, puzzles_attributes: [:id, :name, :image_url, :_destroy])
     end
 end

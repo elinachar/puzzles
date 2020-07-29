@@ -1,4 +1,4 @@
-<%= form_with(model: category, local: true) do |form| %>
+<%= form_for category do |f| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -12,16 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
+  <br>
 
   <div class="field">
-    <%= form.label :image_url %>
-    <%= form.file_field :image_url %>
+    <%= f.label :image_url %>
+    <%= f.file_field :image_url %>
+    <%= image_tag @category.image_url.to_s, alt: @category.image_url.to_s, class: "img-responsive"%>
+  </div>
+
+  <div class="nested-puzzles" id="puzzles">
+    <h2>Editing Puzzles</h2>
+    <div class="row edit-puzzles-title">
+      <div class="col-5">
+        <p>Puzzle Name</p>
+      </div>
+      <div class="col-6">
+        <p>Puzzle Image Url</p>
+      </div>
+      <div class="col-1">
+        <p>Delete</p>
+      </div>
+    </div>
+    <%= f.fields_for :puzzles do |puzzle| %>
+      <%= render 'puzzle_fields', f: puzzle %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association "<i class='fas fa-plus'></i> Add Puzzle".html_safe, f, :puzzles, class: "btn" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

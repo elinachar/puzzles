@@ -5,9 +5,9 @@
 <h1>Animals of the <%= @category.name %></h1>
 
 <div class="row group-cards">
-  <% @puzzles.each do |puzzle| %>
+  <% @category.puzzles.each do |puzzle| %>
     <div class="col-sm-6 col-md-4 card">
-      <%= link_to puzzle, :action => 'go' do %>
+      <%= link_to [@category, puzzle], :action => 'go' do %>
         <%= image_tag puzzle.image_url.to_s, alt: puzzle.name, class: "img-responsive" %>
         <h2><%= puzzle.name %></h2>
       <% end %>
@@ -23,11 +23,10 @@
   </div>
 </div>
 
-<%= link_to '<span>&#43;</span> Add New Puzzle'.html_safe, new_puzzle_path, class: "btn" %>
 
 <br>
 <br>
-<%= link_to 'Edit', edit_category_path(@category) %>
+<%= link_to 'Edit ' + @category.name, edit_category_path(@category), class: 'btn form-btn' %>
 
 
 </div>

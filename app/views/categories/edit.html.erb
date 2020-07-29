@@ -1,6 +1,12 @@
-<h1>Editing Category</h1>
+<div class="container-fluid category-edit">
+  <h1>Editing Category</h1>
 
-<%= render 'form', category: @category %>
+  <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+  <br>
+  <%= link_to 'Delete Category', @category, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn form-btn delete'%>
+  <br>
+  <br>
+  <%= link_to 'Show ' + @category.name, @category, class: 'btn form-btn' %>
+  <%= link_to 'Back to Homepage', categories_path, class: 'btn form-btn' %>
+</div>

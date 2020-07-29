@@ -2,20 +2,74 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+// SHOW
 .category-show {
 
-  .btn {
-    border: 1px solid black;
-  }
-
-  .btn:hover {
-    background: var(--light-orange);
-  }
   span {
     font-size: 20px;
     padding-bottom: 5px;
   }
+}
 
 
+// EDIT
+.category-edit {
+  .delete {
+    color: red;
+    border-color: red;
+    background: #ffe5e5;
+  }
+
+  .delete:hover {
+    color: #990000;
+  }
+}
+
+// FORM
+// for categories and nested puzzles
+.field img {
+  width: 50px;
+}
+
+.nested-puzzles {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  h2 {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 40px;
+  color: var(--orange);
+  }
+
+  .edit-puzzles-title {
+    font-weight: 700;
+  }
+
+
+  .links {
+    a {
+      color: var(--orange);
+      width: 80%;
+      border: solid thin;
+      display: block;
+      margin: auto;
+    }
+
+    a:hover {
+      color: var(--dark-orange);
+    }
+  }
+}
+
+.nested-fields {
+
+  i {
+    color: red;
+  }
+
+  i:hover {
+    color: #990000;
+  }
+
+  margin-bottom: 20px;
 }

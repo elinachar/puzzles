@@ -1,13 +1,13 @@
-<div class="container-fluid puzzle text-center">
+<div class="container-fluid text-center puzzle-show">
   <p id="notice"><%= notice %></p>
 
   <div class="title row">
     <div class="col-2 buttons">
       <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, puzzles_path, class:"back-btn" %>
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn" %>
       </div>
       <div class="button">
-        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, puzzle_path, class:"back-btn" %>
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn" %>
       </div>
     </div> <!-- end butttons -->
     <h1 class="col-10 col-md-12 text-center"><%= @puzzle.name %></h1>
@@ -40,33 +40,33 @@
   <div class="possibilities row">
     <div class="col-md-2 col-3 buttons d-none d-md-block">
       <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, puzzles_path, class:"back-btn" %>
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn" %>
       </div>
       <div class="button">
-        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn" %>
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn" %>
       </div>
     </div> <!-- end butttons -->
 
     <div class="col-12 col-md-8 col-6 pieces-selection">
-      <%= link_to puzzle_path(piecesnumber: 4, piecesnumberwidth: 2, piecesnumberheight: 2), remote: false do %>
+      <%= link_to category_puzzle_path(piecesnumber: 4, piecesnumberwidth: 2, piecesnumberheight: 2), remote: false do %>
         <div class="piece-selection" id="piece-selection-4">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
           <p>4</p>
         </div>
       <% end %>
-      <%= link_to puzzle_path(piecesnumber: 6, piecesnumberwidth: 3, piecesnumberheight: 2), remote: false do %>
+      <%= link_to category_puzzle_path(piecesnumber: 6, piecesnumberwidth: 3, piecesnumberheight: 2), remote: false do %>
         <div class="piece-selection" id="piece-selection-6">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
           <p>6</p>
         </div>
       <% end %>
-      <%= link_to puzzle_path(piecesnumber: 12, piecesnumberwidth: 4, piecesnumberheight: 3), remote: false do %>
+      <%= link_to category_puzzle_path(piecesnumber: 12, piecesnumberwidth: 4, piecesnumberheight: 3), remote: false do %>
         <div class="piece-selection" id="piece-selection-12">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
           <p>12</p>
         </div>
       <% end %>
-      <%= link_to puzzle_path(piecesnumber: 16, piecesnumberwidth: 4, piecesnumberheight: 4), remote: false do %>
+      <%= link_to category_puzzle_path(piecesnumber: 16, piecesnumberwidth: 4, piecesnumberheight: 4), remote: false do %>
         <div class="piece-selection" id="piece-selection-16">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
           <p>16</p>
@@ -81,7 +81,7 @@
       <div class="row group-cards">
         <% @random_puzzles.each do |random_puzzle| %>
           <div class="col-sm-6 col-md-3 card">
-            <%= link_to random_puzzle, :action => 'go' do %>
+            <%= link_to [@category, random_puzzle], :action => 'go' do %>
               <%= image_tag random_puzzle.image_url.to_s, alt: random_puzzle.name, class: "img-responsive" %>
               <h2><%= random_puzzle.name %></h2>
             <% end %>
@@ -109,4 +109,3 @@
   </div>
 
 </div>
-<%= link_to 'Edit', edit_puzzle_path(@puzzle) %>

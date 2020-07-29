@@ -1,0 +1,16 @@
+<div class="nested-fields row">
+  <div class="field col-5">
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field col-6">
+    <%= f.label :image_url, class: "sr-only" %>
+    <%= f.file_field :image_url %>
+    <% if f.index != "new_puzzles" %> <!-- Do not show image if add new puzzle was clicked, else gets the img of the first puzzle of category -->
+      <%= image_tag @category.puzzles[f.index.to_f].image_url.to_s, alt: @category.puzzles[f.index.to_f].image_url.to_s, class: "img-responsive" %>
+    <% end %>
+  </div>
+
+  <%= link_to_remove_association "<i class='fas fa-trash-alt'></i>".html_safe, f, class: "col-1 text-center" %>
+</div>

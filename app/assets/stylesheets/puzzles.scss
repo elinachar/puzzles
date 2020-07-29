@@ -34,7 +34,7 @@
   }
 }
 
-.puzzle {
+.puzzle-show {
   .main-puzzle {
     text-align: center;
     z-index: -1;
@@ -64,8 +64,7 @@
 }
 
 .possibilities {
-  margin-top: 50px;
-
+  margin-top: 30px;
   .buttons {
     padding-top: 20px;
   }
@@ -128,6 +127,7 @@
     color: var(--orange);
     font-size: 25px;
     width: 50%;
+    font-family: 'Unkempt', cursive;
   }
 
   .btn:hover {
