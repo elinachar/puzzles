@@ -73,7 +73,7 @@
         <% @random_puzzles.each do |random_puzzle| %>
           <div class="col-sm-6 col-md-3 card">
             <%= link_to [@category, random_puzzle], :action => 'go' do %>
-              <%= image_tag random_puzzle.image_url.to_s, alt: random_puzzle.name, class: "img-responsive" %>
+              <%= image_tag random_puzzle.image_url_url(:index_thumb).to_s, alt: random_puzzle.name, class: "img-responsive" %>
               <h2><%= random_puzzle.name %></h2>
             <% end %>
           </div>
@@ -89,7 +89,7 @@
         <% @random_categories.each do |random_category| %>
           <div class="col-sm-6 col-md-3 card">
             <%= link_to random_category, :action => 'go' do %>
-              <%= image_tag random_category.image_url.to_s, alt: random_category.name, class: "img-responsive" %>
+              <%= image_tag random_category.image_url_url(:index_thumb).to_s, alt: random_category.name, class: "img-responsive" %>
               <h2><%= random_category.name %></h2>
             <% end %>
           </div>
