@@ -29,7 +29,16 @@
   </div> <!-- end row -->
 
   <div class="possibilities row">
-    <div class="col-sm-12 col-md-8 order-sm-1 pieces-selection">
+    <div class="col-sm-12 order-sm-2 col-md-2 buttons d-md-block">
+      <div class="button">
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn", title: 'Go back to ' + @category.name + ' Puzzles', data: { toggle: 'tooltip', placement: 'bottom'} %>
+      </div>
+      <div class="button">
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn", title: 'Refresh Puzzle', data: { toggle: 'tooltip', placement: 'bottom'} %>
+      </div>
+    </div> <!-- end butttons -->
+
+    <div class="col-sm-12 order-sm-1 col-md-8 pieces-selection">
       <%= link_to category_puzzle_path(piecesnumber: 4, piecesnumberwidth: 2, piecesnumberheight: 2), remote: false do %>
         <div class="piece-selection" id="piece-selection-4">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
@@ -56,14 +65,6 @@
       <% end %>
     </div><!-- end pieces-selection -->
 
-    <div class="col-sm-12 col-md-2 order-sm-12 buttons d-md-block">
-      <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn", title: 'Go back to ' + @category.name + ' Puzzles', data: { toggle: 'tooltip', placement: 'bottom'} %>
-      </div>
-      <div class="button">
-        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn", title: 'Refresh Puzzle', data: { toggle: 'tooltip', placement: 'bottom'} %>
-      </div>
-    </div> <!-- end butttons -->
   </div><!-- end possibilities -->
 
   <div class="additional-puzzles">
