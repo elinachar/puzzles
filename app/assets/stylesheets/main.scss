@@ -55,6 +55,21 @@ a {
   box-shadow: 0 0 0 0.2rem rgba(218,118,85, 0.2) !important;
 }
 
+.btn-viewer {
+  background: var(--teal);
+  color: var(--orange);
+  font-size: 25px;
+  width: 50%;
+  font-family: 'Unkempt', cursive;
+}
+
+.btn-viewer:hover {
+  text-shadow: 1px 1px 2px var(--light-orange);
+  box-shadow: 2px 2px 4px #e5e5e5;
+  color: var(--orange);
+}
+
+
 .group-cards {
   .card {
     position: relative;
@@ -129,17 +144,24 @@ footer {
     color: var(--dark-orange);
   }
 
-  .copyright{
-    float: left;
-  }
-
   .unsplash {
-    float: right;
+    text-align: right;
   }
 
 }
 
 
+// XSmall devices
+@media (max-width: 576px) {
+  footer {
+    height: 110px;
+
+    .unsplash,
+    .copyright {
+      text-align: center;
+    }
+  }
+}
 
 // Medium and up devices
 @media (min-width: 992px) {
@@ -151,3 +173,15 @@ footer {
     }
   }
 }
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) {...}
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width

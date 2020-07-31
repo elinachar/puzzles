@@ -6,7 +6,7 @@
     <% @categories.each do |category| %>
       <div class="col-sm-6 card">
         <%= link_to category, :action => 'go' do %>
-          <%= image_tag category.image_url.to_s, alt: category.name, class: "img-responsive" %>
+          <%= image_tag category.image_url_url(:index_thumb).to_s, alt: category.name, class: "img-responsive" %>
           <h2><%= category.name %></h2>
         <% end %>
       </div>

@@ -105,7 +105,10 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
-  // Get the number of pieces on the page
+  // Bootstrap Tooltips of possibilities buttons
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Set active puzzle piece of pieces
   var url_index_of_pieces, num_of_pieces_1, num_of_pieces_2, num_of_pieces;
   url_index_of_pieces = window.location.href.indexOf("piecesnumber=");
   num_of_pieces = 6;
@@ -122,7 +125,12 @@ $(document).on('turbolinks:load', function() {
   })
 
   $("#piece-selection-" + num_of_pieces).addClass("active");
-  console.log("num of pieces", num_of_pieces)
+
+  // Unable to click active puzzle piece of pieces number for avoid reload
+  $(".piece-selection.active").click(function(e){
+    e.preventDefault();
+  })
+
 
 })
 

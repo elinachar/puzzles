@@ -8,7 +8,7 @@
     <%= f.label :image_url, class: "sr-only" %>
     <%= f.file_field :image_url %>
     <% if f.index != "new_puzzles" %> <!-- Do not show image if add new puzzle was clicked, else gets the img of the first puzzle of category -->
-      <%= image_tag @category.puzzles[f.index.to_f].image_url.to_s, alt: @category.puzzles[f.index.to_f].image_url.to_s, class: "img-responsive" %>
+      <%= image_tag @category.puzzles[f.index.to_f].image_url_url(:edit_thumb).to_s, alt: @category.puzzles[f.index.to_f].image_url.to_s, class: "img-responsive" %>
     <% end %>
   </div>
 

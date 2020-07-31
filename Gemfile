@@ -38,7 +38,11 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Carrierwave: for uploading photos
 gem 'carrierwave'
+
+# MiniMagick: for proccess uploading photos
+gem "mini_magick"
 
 # Cocoon: gem for nested associations
 gem 'cocoon'

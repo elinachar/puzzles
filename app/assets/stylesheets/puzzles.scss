@@ -38,6 +38,7 @@
   .main-puzzle {
     text-align: center;
     z-index: -1;
+    max-width: 1920px;
 
     .row {
       margin: 0;
@@ -65,6 +66,7 @@
 
 .possibilities {
   margin-top: 30px;
+
   .buttons {
     padding-top: 20px;
   }
@@ -108,6 +110,31 @@
     }
 
   }
+
+  .tooltip-inner {
+    background:rgb(239, 238, 231) ; /* The Fallback */
+    background:rgba(239, 238, 231, 0.7);
+    border: 1px solid #3f4651;
+    color: #3f4651;
+  }
+
+}
+
+.tooltip {
+  margin-top: 8px;
+}
+
+.tooltip-inner {
+  background:rgb(239, 238, 231) ; /* The Fallback */
+  background: var(--light-orange);
+  background: none;
+  border: 1px solid var(--orange);
+  border: none;
+  color: var(--orange);
+}
+
+.tooltip .arrow {
+  display: none;
 }
 
 .additional-puzzles {
@@ -122,19 +149,6 @@
     font-size: 25px !important;
   }
 
-  .btn {
-    background: var(--teal);
-    color: var(--orange);
-    font-size: 25px;
-    width: 50%;
-    font-family: 'Unkempt', cursive;
-  }
-
-  .btn:hover {
-    text-shadow: 1px 1px 2px var(--light-orange);
-    box-shadow: 2px 2px 4px #e5e5e5;
-  }
-
   .same-category {
     margin-top: 50px;
   }
@@ -146,22 +160,11 @@
   }
 
 }
-// Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
+
+// Media Queries
+
+// XS, SM and MD devices
 @media (max-width: 991px) {
-    .buttons {
-      .button {
-        width: 40px;
-        height: 40px;
-
-        i {
-          font-size: 28px;
-        }
-      }
-
-      .button:first-of-type {
-        margin-right: 5px;
-      }
-    }
   .possibilities {
     .pieces-selection {
       .piece-selection {
@@ -183,29 +186,49 @@
   }
 }
 
+//Small and Medium devices
+@media (min-width: 577px) and (max-width: 991px) {
+  .buttons {
+    .button {
+      width: 50px;
+      height: 50px;
+
+      i {
+        font-size: 38px;
+      }
+    }
+    .button:first-of-type {
+      margin-right: 5px;
+    }
+  }
+}
+
+// XS and SM Devices
+@media (max-width: 767px) {
+  .additional-puzzles .same-category {
+    margin-top: 30px;
+  }
+}
+
 
 // XSmall devices
 @media (max-width: 576px) {
   .buttons {
     .button {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
 
       i {
-        font-size: 23px;
-        padding-left: 3px;
-        padding-top: 3px;
+        font-size: 28px;
+        // padding-left: 3px;
+        // padding-top: 3px;
       }
     }
   }
 }
 
 // Medium devices and up
-@media (min-width: 768px) {
-  .title .buttons {
-    display: none;
-  }
-}
+// @media (min-width: 768px) {...}
 
 
 // Small devices (landscape phones, less than 768px)

@@ -1,14 +1,6 @@
 <div class="container-fluid text-center puzzle-show">
 
   <div class="title row">
-    <div class="col-2 buttons">
-      <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn" %>
-      </div>
-      <div class="button">
-        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn" %>
-      </div>
-    </div> <!-- end butttons -->
     <h1 class="col-10 col-md-12 text-center"><%= @puzzle.name %></h1>
 
   </div>
@@ -37,16 +29,7 @@
   </div> <!-- end row -->
 
   <div class="possibilities row">
-    <div class="col-md-2 col-3 buttons d-none d-md-block">
-      <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn" %>
-      </div>
-      <div class="button">
-        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn" %>
-      </div>
-    </div> <!-- end butttons -->
-
-    <div class="col-12 col-md-8 col-6 pieces-selection">
+    <div class="col-sm-12 col-md-8 order-sm-1 pieces-selection">
       <%= link_to category_puzzle_path(piecesnumber: 4, piecesnumberwidth: 2, piecesnumberheight: 2), remote: false do %>
         <div class="piece-selection" id="piece-selection-4">
           <%= image_tag("puzzle-2-green.png", class: "img-fluid", alt: "puzzle piece") %>
@@ -72,6 +55,15 @@
         </div>
       <% end %>
     </div><!-- end pieces-selection -->
+
+    <div class="col-sm-12 col-md-2 order-sm-12 buttons d-md-block">
+      <div class="button">
+        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, @category, class:"back-btn", title: 'Go back to ' + @category.name + ' Puzzles', data: { toggle: 'tooltip', placement: 'bottom'} %>
+      </div>
+      <div class="button">
+        <%= link_to '<i class="material-icons">refresh</i>'.html_safe, category_puzzle_path(piecesnumber: @piecesNumber, piecesnumberwidth: @piecesNumberWidth, piecesnumberheight: @piecesNumberHeight), class:"back-btn", title: 'Refresh Puzzle', data: { toggle: 'tooltip', placement: 'bottom'} %>
+      </div>
+    </div> <!-- end butttons -->
   </div><!-- end possibilities -->
 
   <div class="additional-puzzles">
@@ -87,7 +79,7 @@
           </div>
         <% end %>
       </div>
-      <%= link_to  'All ' +@category.name + ' Animals', @category, class:"btn" %>
+      <%= link_to  'All ' +@category.name + ' Animals', @category, class:"btn btn-viewer" %>
     </div> <!-- end same-category -->
 
     <hr>
@@ -103,7 +95,7 @@
           </div>
         <% end %>
       </div>
-      <%= link_to  'All Animals', root_path, class:"btn" %>
+      <%= link_to  'All Animals', root_path, class:"btn btn-viewer" %>
     </div> <!-- end all-categories -->
   </div>
 

@@ -5,20 +5,14 @@
     <% @category.puzzles.each do |puzzle| %>
       <div class="col-sm-6 col-md-4 card">
         <%= link_to [@category, puzzle], :action => 'go' do %>
-          <%= image_tag puzzle.image_url.to_s, alt: puzzle.name, class: "img-responsive" %>
+          <%= image_tag puzzle.image_url_url(:index_thumb).to_s, alt: puzzle.name, class: "img-responsive" %>
           <h2><%= puzzle.name %></h2>
         <% end %>
       </div>
     <% end %>
   </div>
 
-  <div class="possibilities">
-    <div class="buttons">
-      <div class="button">
-        <%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, categories_path, class:"back-btn" %>
-      </div>
-    </div>
-  </div>
+  <%= link_to  'Check out all Animals', root_path, class:"btn btn-viewer" %>
 
   <% if user_signed_in? %>
     <br>

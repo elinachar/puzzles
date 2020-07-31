@@ -21,6 +21,10 @@
 
     <!-- Javascript -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   </head>
 
@@ -50,8 +54,10 @@
 
     <hr>
     <footer>
-      <p class="copyright">&copy; <%= Date.today.year %> <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank %></p>
-      <p class="unsplash">All photos from <%= link_to 'Unsplash', 'https://unsplash.com/', target: :_blank %></p>
+      <div class="row">
+        <p class="col-sm-6 order-sm-12 unsplash">All photos from <%= link_to 'Unsplash', 'https://unsplash.com/', target: :_blank %></p>
+        <p class="col-sm-6 order-sm-1 copyright">&copy; <%= Date.today.year %> <%= link_to 'Elina Charalampous', 'https://elinacharalampous.gr', target: :_blank %></p>
+      </div>
     </footer>
     <!-- main body ends here -->
   </body>
