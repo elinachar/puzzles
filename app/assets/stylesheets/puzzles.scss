@@ -213,6 +213,25 @@
 
 // XSmall devices
 @media (max-width: 576px) {
+  .possibilities {
+    .pieces-selection {
+      .piece-selection {
+        margin-left: 7px;
+        margin-right: 7px;
+
+        img {
+          width: 53px;
+        }
+
+        p {
+          font-size: 20px;
+          width: 53px;
+          left: -5px;
+        }
+      }
+    }
+  }
+
   .buttons {
     .button {
       width: 40px;
