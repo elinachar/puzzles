@@ -9,9 +9,11 @@ $(document).on('turbolinks:load', function() {
 
   function resizePuzzleAndPieces(nPieces, nPiecesWidth, nPiecesHeight, imageUrl) {
     // Initialize the variables
-    var ratio, col8Width, col2Width, nPiecesWidth, nPiecesHeight, puzzleWidth, puzzleHeight, pieceWidth, pieceHeight, pieceScale
+    var ratio, col8Width, col2Width, nPiecesWidth, nPiecesHeight, puzzleWidth,
+    puzzleHeight, pieceWidth, pieceHeight
 
     // Set the image
+    $(".pieces-left, .pieces-right").css("margin-top", "0");
     $(".piece").css("background-image", "url('" + imageUrl + "')");
 
     // Set the size of the main puzzle
@@ -22,7 +24,6 @@ $(document).on('turbolinks:load', function() {
     // The width will be respective with the default image ratio
     puzzleWidth = col8Width;
     puzzleHeight = puzzleWidth/ratio;
-
 
     // Each piece will have the following dimensions respective to the total
     // pieces per side
@@ -53,18 +54,34 @@ $(document).on('turbolinks:load', function() {
     var angle = [5, -5, 0, 5, -5, 0, 5, -5];
 
     // Position the side pieces
-    var topShift, top, angle, piecesLeft, piecesRight;
+    var topShift, top, angle, piecesLeft, piecesRight, topOffsetLastSidePiece, ratioShiftUp;
     topShift = (pieceHeight*scale)/2;
 
     piecesLeft = $(".pieces-left").children();
     piecesRight = $(".pieces-right").children();
     $.each(piecesLeft, function(i, itemLeft) {
       top = -i*topShift;
+      if (i == piecesLeft.length-1) {
+        topOffsetLastSidePiece = top;
+      }
       $(itemLeft).css({ "top": top + "px", "left": "-15%", "transform": "scale(" + scale + ") rotate(" + angle[i] + "deg)"});
       $(piecesRight[i]).css({ "top": top + "px", "left": "10%", "transform": "scale(" + scale + ") rotate(" + angle[i] + "deg)"})
     })
 
     $(".puzzle-pieces-side").css("height", puzzleHeight + "px");
+
+    // Shift the side puzzles pieces up for SM and UP screens and for 12 and 16 pieces
+    if ($(window).width() >= 576) {
+      if (nPieces == 12) {
+        ratioShiftUp = 2;
+      } else if (nPieces == 16) {
+        ratioShiftUp = 3;
+      }
+    }
+    var puzzleBottom = $(".puzzle-pieces-side").offset().top +$(".puzzle-pieces-side").outerHeight(true);
+    var sideBottom = $(piecesLeft.first()).offset().top - topOffsetLastSidePiece + pieceHeight
+    var sideTopShift = (puzzleBottom - sideBottom)/ratioShiftUp;
+    $(".pieces-left, .pieces-right").css("margin-top", sideTopShift + "px");
   }
 
   $(window).on('resize', function() {

@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// color: #317873;
-// color: #225450;
+@import "colors";
+@import "fonts";
 
 .buttons {
   display: inline-block;
@@ -92,7 +92,7 @@
       p {
         font-size: 35px;
         font-weight: 600;
-        color: var(--teal);
+        color: $teal;
         width: 80px;
         height: 80px;
         margin: auto;
@@ -126,11 +126,11 @@
 
 .tooltip-inner {
   background:rgb(239, 238, 231) ; /* The Fallback */
-  background: var(--light-orange);
+  background: $light-orange;
   background: none;
-  border: 1px solid var(--orange);
+  border: 1px solid $orange;
   border: none;
-  color: var(--orange);
+  color: $orange;
 }
 
 .tooltip .arrow {
@@ -143,12 +143,8 @@
 
   p {
     font-size: 30px;
-    color: var(--orange);
-    font-family: 'Cabin Sketch', cursive; //good
-  }
-
-  h2 {
-    font-size: 25px !important;
+    color: $orange;
+    font-family: $cabinSketch;
   }
 
   .same-category {
@@ -165,55 +161,7 @@
 
 // Media Queries
 
-// XS, SM and MD devices
-@media (max-width: 991px) {
-  .possibilities {
-    .pieces-selection {
-      .piece-selection {
-        margin-left: 10px;
-        margin-right: 10px;
-
-        img {
-          width: 60px;
-        }
-
-        p {
-          font-size: 23px;
-          width: 60px;
-          height: 60px;
-          left: -5px;
-        }
-      }
-    }
-  }
-}
-
-//Small and Medium devices
-@media (min-width: 577px) and (max-width: 991px) {
-  .buttons {
-    .button {
-      width: 50px;
-      height: 50px;
-
-      i {
-        font-size: 38px;
-      }
-    }
-    .button:first-of-type {
-      margin-right: 5px;
-    }
-  }
-}
-
-// XS and SM Devices
-@media (max-width: 767px) {
-  .additional-puzzles .same-category {
-    margin-top: 30px;
-  }
-}
-
-
-// XSmall devices
+// XS devices
 @media (max-width: 576px) {
   .possibilities {
     .pieces-selection {
@@ -241,15 +189,83 @@
 
       i {
         font-size: 28px;
-        // padding-left: 3px;
-        // padding-top: 3px;
       }
     }
   }
 }
 
-// Medium devices and up
-// @media (min-width: 768px) {...}
+// XS and SM Devices
+@media (max-width: 767px) {
+  .additional-puzzles .same-category {
+    margin-top: 30px;
+  }
+}
+
+// XS, SM and MD devices
+// @media (max-width: 991px) {...}
+
+// SM and MD devices
+@media (min-width: 577px) and (max-width: 991px) {
+  .buttons {
+    .button {
+      width: 50px;
+      height: 50px;
+
+      i {
+        font-size: 38px;
+      }
+    }
+    .button:first-of-type {
+      margin-right: 5px;
+    }
+  }
+
+  .possibilities {
+    .pieces-selection {
+      .piece-selection {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        img {
+          width: 60px;
+        }
+
+        p {
+          font-size: 23px;
+          width: 60px;
+          height: 60px;
+          left: -5px;
+        }
+      }
+    }
+  }
+}
+
+// MD devices
+@media (min-width: 768px) and (max-width: 991px) {
+  .additional-puzzles {
+    .group-cards {
+      .card {
+        h2 {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
+
+// LG and UP
+@media (min-width: 992px) {
+  .additional-puzzles {
+    .group-cards {
+      .card {
+        h2 {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
 
 
 // Small devices (landscape phones, less than 768px)

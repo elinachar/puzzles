@@ -1,75 +1,61 @@
-:root {
-  --orange: #da7655;
-  --dark-orange: #824633;
-  --light-orange: #fbf1ee;
-  --teal: #00cbb5;
-}
+@import "colors";
+@import "fonts";
 
-html, body {
-  height: 100%; /* for the sticky footer */
-}
-
-h1 {
-// font-family: 'Architects Daughter', cursive; //good
-  font-family: 'Cabin Sketch', cursive; //good
-// font-family: 'Caveat Brush', cursive; //ok
-// font-family: 'Gloria Hallelujah', cursive; //for h2
-// font-family: 'Handlee', cursive; //ok
-// font-family: 'McLaren', cursive; //good
-// font-family: 'Ranchers', cursive;//ok
-// font-family: 'Rancho', cursive; //ok
-// font-family: 'Shadows Into Light Two', cursive; //ok
-// font-family: 'Unkempt', cursive; //Very good
-  font-size: 50px;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  color: var(--orange);
-}
-
-h2 {
-  font-family: 'Gloria Hallelujah', cursive; //for h2
-}
-
-p {
-  // font-family: 'Architects Daughter', cursive; //good
-  // font-family: 'Caveat Brush', cursive; //ok
-
-
-  // font-family: 'McLaren', cursive; // very good /////
-
-
-  // font-family: 'Shadows Into Light Two', cursive; //ok
-  // font-family: 'Unkempt', cursive; //Very good !!!!THIS WAS SELECTED
-}
-
+//Container
 .container-fluid {
   width: 90%;
 }
 
+// Headers
+h1 {
+  font-family: $cabinSketch;
+  font-size: 50px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  color: $orange;
+}
 
+h2 {
+  font-family: $gloriaHallelujah;
+}
+
+
+// Links
 a {
   text-decoration: none !important;
 }
 
+// Buttons
 .btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(218,118,85, 0.2) !important;
 }
 
 .btn-viewer {
-  background: var(--teal);
-  color: var(--orange);
+  background: $teal;
+  color: $orange;
   font-size: 25px;
   width: 50%;
-  font-family: 'Unkempt', cursive;
+  font-family: $unkempt;
 }
 
 .btn-viewer:hover {
-  text-shadow: 1px 1px 2px var(--light-orange);
+  text-shadow: 1px 1px 2px $light-orange;
   box-shadow: 2px 2px 4px #e5e5e5;
-  color: var(--orange);
+  color: $orange;
 }
 
+.form-btn {
+  color: $orange;
+  border: solid thin;
+  height: 40px;
+}
 
+.form-btn:hover {
+  background-color: $light-orange;
+  color: $dark-orange;
+}
+
+// Cards
 .group-cards {
   .card {
     position: relative;
@@ -95,7 +81,7 @@ a {
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-        font-size: 35px;
+        font-size: 40px;
         text-shadow: 2px 2px grey;
       }
     }
@@ -110,68 +96,11 @@ a {
   }
 }
 
-.anchor {
-  min-height: 100%; /* for the sticky footer */
-}
 
-.form-btn {
-  color: var(--orange);
-  border: solid thin;
-  height: 40px;
-}
-
-.form-btn:hover {
-  background-color: var(--light-orange);
-  color: var(--dark-orange);
-}
-
+// Horizontal line
 hr {
   box-shadow: 1px 1px #ccf4f0;
   margin-bottom: 0px;
-}
-
-footer {
-  padding: 20px 30px 0px 30px;
-  height: 60px;
-  background: #eafaf8;
-  font-family: 'Unkempt', cursive;
-
-  a {
-    color: var(--orange);
-  }
-
-  a:hover {
-    color: var(--dark-orange);
-  }
-
-  .unsplash {
-    text-align: right;
-  }
-
-}
-
-
-// XSmall devices
-@media (max-width: 576px) {
-  footer {
-    height: 110px;
-
-    .unsplash,
-    .copyright {
-      text-align: center;
-    }
-  }
-}
-
-// Medium and up devices
-@media (min-width: 992px) {
-  .group-cards {
-    .card {
-      h2 {
-        font-size: 40px !important;
-      }
-    }
-  }
 }
 
 // Small devices (landscape phones, less than 768px)

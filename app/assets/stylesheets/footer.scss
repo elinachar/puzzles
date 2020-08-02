@@ -1,0 +1,42 @@
+@import "colors";
+@import "fonts";
+
+html, body {
+  height: 100%; /* for the sticky footer */
+}
+
+.anchor {
+  min-height: 100%; /* for the sticky footer */
+}
+
+footer {
+  padding: 20px 30px 0px 30px;
+  height: 60px;
+  background: #eafaf8;
+  font-family: $unkempt;
+
+  a {
+    color: $orange;
+  }
+
+  a:hover {
+    color: $dark-orange;
+  }
+
+  .unsplash {
+    text-align: right;
+  }
+
+}
+
+// XSmall devices
+@media (max-width: 576px) {
+  footer {
+    height: 110px;
+
+    .unsplash,
+    .copyright {
+      text-align: center;
+    }
+  }
+}
