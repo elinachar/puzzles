@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   mount_uploader :image_url, ImageUploader
 
   def to_param
-    name.downcase
+    name.downcase.parameterize
   end
 
 end

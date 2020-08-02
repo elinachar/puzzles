@@ -65,7 +65,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find_by(name: params[:name].capitalize)
+      @category = Category.find_by(name: params[:name].capitalize.tr("-", " "))
     end
 
     # Only allow a list of trusted parameters through.
