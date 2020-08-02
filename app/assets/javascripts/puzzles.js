@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+
   var nPieces, nPiecesWidth, nPiecesHeight, imageUrl
   nPieces = $(".main-puzzle").data("pieces-number");
   nPiecesWidth = $(".main-puzzle").data("pieces-number-width");
