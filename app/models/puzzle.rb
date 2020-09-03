@@ -3,7 +3,7 @@ class Puzzle < ApplicationRecord
   mount_uploader :image_url, ImageUploader
 
   def to_param
-    name.downcase.parameterize
+    name.parameterize
   end
 
 end
